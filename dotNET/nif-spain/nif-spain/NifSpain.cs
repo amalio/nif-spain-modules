@@ -7,10 +7,11 @@ namespace nif_spain
 {
     public class NifSpain
     {
-        private String correspondencia = "TRWAGMYFPDXBNJZSQVHLCKE";
+        
 
         public Char GetLetter(int numers)
         {
+            String correspondencia = "TRWAGMYFPDXBNJZSQVHLCKE";
             return correspondencia[numers % 23];
         }
 

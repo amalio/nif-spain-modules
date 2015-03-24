@@ -3,12 +3,12 @@ __author__ = 'amalio'
 
 class NifSpain:
 
-    correspondencia = "TRWAGMYFPDXBNJZSQVHLCKE"
-
-    def get_letter(self, nif_numbers):
+    @staticmethod
+    def get_letter(nif_numbers):
+        correspondencia = "TRWAGMYFPDXBNJZSQVHLCKE"
         if type(nif_numbers) is not int:
             nif_numbers = int(nif_numbers)
-        return self.correspondencia[nif_numbers % 23]
+        return correspondencia[nif_numbers % 23]
 
     def check(self, nif):
         if type(nif) is not str:
