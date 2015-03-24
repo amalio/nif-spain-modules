@@ -14,6 +14,11 @@
     assert('L' != nif.getLetter(12311911), 'Letter for 12311911 is not a "L"');
 
 
+    assert(true == nif.check("12332358B"), "12332358B is a valid nif");
+    assert(true == nif.check("12311919L"), "12311919L is a valid nif");
+    assert(false == nif.check("12311911L"), "12311919L is not a valid nif");
+    assert(false == nif.check("12"), "12 String is not a valid nif");
+    assert(false == nif.check(12), "12 Int is not a valid nif");
 
 </script>
 </body>
