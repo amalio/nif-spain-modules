@@ -7,9 +7,20 @@ namespace nif_spain
 {
     public class NifSpain
     {
+        private String correspondencia = "TRWAGMYFPDXBNJZSQVHLCKE";
+
         public Char GetLetter(int numers)
         {
-            return 'B';
+            return correspondencia[numers % 23];
+        }
+
+        public Char GetLetter(string numbersString)
+        {
+            int numbers = 0;
+            int.TryParse(numbersString, out numbers);
+            if (numbers == 0)
+                throw new ArgumentException();
+            return GetLetter(numbers);
         }
     }
 }

@@ -2,20 +2,38 @@
 using System.Text;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using nif_spain;
+using NUnit.Framework;
+
+
 
 namespace TestNifSpain
 {
-    [TestClass]
+    [TestFixture]
     public class UnitTestNifSpain
     {
-        [TestMethod]
+        private NifSpain nifSpain;
+
+        [SetUp]
+        public void SetUp()
+        {
+            nifSpain = new NifSpain();
+        }
+
+        [Test]
         public void TestGetLetter()
         {
-            NifSpain nifSpain = new NifSpain(); 
-
             Assert.AreEqual('B', nifSpain.GetLetter(12332358));
+            Assert.AreEqual('B', nifSpain.GetLetter("12332358"));
+            Assert.AreEqual('L', nifSpain.GetLetter(12311919));
+        }
+
+        [Test]
+        public void TestGetLetterException()
+        {
+            Assert.AreEqual('B', nifSpain.GetLetter(12332358));
+            Assert.AreEqual('B', nifSpain.GetLetter("12332358"));
+            Assert.AreEqual('L', nifSpain.GetLetter(12311919));
         }
     }
 }
