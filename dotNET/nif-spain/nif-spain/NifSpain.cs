@@ -16,11 +16,29 @@ namespace nif_spain
 
         public Char GetLetter(string numbersString)
         {
-            int numbers = 0;
+            var numbers = 0;
             int.TryParse(numbersString, out numbers);
             if (numbers == 0)
                 throw new ArgumentException();
             return GetLetter(numbers);
+        }
+
+        public bool Check(String nifString)
+        {
+            if (nifString.Length != 9)
+                return false;
+            else
+            {
+                var numbers = 0;
+                int.TryParse(nifString.Substring(0, 8), out numbers);
+                if (numbers == 0)
+                    return false;
+                else
+                {
+                    var validLetter = GetLetter(numbers);
+                    return validLetter == nifString[8];
+                }
+            }
         }
     }
 }

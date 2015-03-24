@@ -21,7 +21,6 @@ namespace nif_spain_test
         [Test]
         public void TestGetLetter()
         {
-            NifSpain nifSpain = new NifSpain();
             Assert.AreEqual('B', _nifSpain.GetLetter(12332358));
             Assert.AreEqual('B', _nifSpain.GetLetter("12332358"));
             Assert.AreEqual('L', _nifSpain.GetLetter(12311919));
@@ -32,6 +31,17 @@ namespace nif_spain_test
         public void TestGetLetterException()
         {
             _nifSpain.GetLetter("12332358B");
+        }
+
+        [Test]
+        public void TestCheck()
+        {
+            Assert.IsTrue(_nifSpain.Check("12332358B"));
+            Assert.IsTrue(_nifSpain.Check("12311919L"));
+            Assert.IsFalse(_nifSpain.Check("12332357B"));
+            Assert.IsFalse(_nifSpain.Check("12"));
+            
+
         }
          
 
